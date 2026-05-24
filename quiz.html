@@ -25,7 +25,7 @@
         <div class="logo">NORGE VM</div>
         <div class="nav-links">
             <a href="spilloppsett.html">Spill oppsett</a>
-            <a href="quiz.html">Quiz</a>
+            <a href="index.html">Hjem</a>
             <a href="drakter.html">Drakter</a>
             <a href="https://www.hellotickets.no/fotballvm-billetter/l-1025?tap_a=111360-a078dd&tap_s=2012950-01cb3f&msg=ticket&gad_source=1&gad_campaignid=23137782386&gbraid=0AAAAADOmXbzJlj_eOAQ_dftHMqA3h007k&gclid=Cj0KCQjwk_bPBhDXARIsACiq8R3TudJdzpDcMog4PyQjwji6dS4Vv50uHhSQW9fgJivbTjaQJw4vc7AaApEKEALw_wcB"
                 class="cta">Kjøp billetter</a>
@@ -38,14 +38,60 @@
 
 
         <div class="container">
+            <p id="tekst"></p>
+            <button class="svar" id="svar0" onclick="svar(0)"></button>
+            <button class="svar" id="svar1" onclick="svar(1)"></button>
+            <button class="svar" id="svar2" onclick="svar(2)"></button>
+            <div class="piler">
+                <button onclick="forrige()">←</button>
+                <span id="teller"></span>
+                <button onclick="neste()">→</button>
+            </div>
 
         </div>
 
     </section>
 
     <footer>
+    
+        <span>Av Anne Helene Bjune Bjerve</span>
+        <span> Heia Norge</span>
+    
 
     </footer>
+
+
+    <script>
+        const sporsmal = [
+            { tekst: "Hvor arrangeres VM 2026?", svar: ["Brasil", "USA/Canada/Mexico", "Europa"], riktig: 1 },
+            { tekst: "Hvor mange lag deltar?", svar: ["32", "48", "64"], riktig: 1 },
+            { tekst: "Hvem er regjerende verdensmester?", svar: ["Frankrike", "Brasil", "Argentina"], riktig: 2 },
+            { tekst: "Hvilken by er IKKE VM-vert?", svar: ["New York", "Rio de Janeiro", "Los Angeles"], riktig: 1 },
+            { tekst: "Hvem vant VM i 2018?", svar: ["Kroatia", "Frankrike", "Belgia"], riktig: 1 },
+            { tekst: "Hvem vant VM i 2022?", svar: ["Frankrike", "Brasil", "Argentina"], riktig: 2 }
+        ];
+
+        let nr = 0;
+
+        function vis() {
+            document.getElementById('tekst').textContent = sporsmal[nr].tekst;
+            document.getElementById('svar0').textContent = sporsmal[nr].svar[0];
+            document.getElementById('svar1').textContent = sporsmal[nr].svar[1];
+            document.getElementById('svar2').textContent = sporsmal[nr].svar[2];
+            document.getElementById('svar0').style.background = '';
+            document.getElementById('svar1').style.background = '';
+            document.getElementById('svar2').style.background = '';
+        }
+
+        function svar(i) {
+            document.getElementById('svar' + i).style.background = i === sporsmal[nr].riktig ? 'green' : 'red';
+        }
+
+        function neste() { nr++; vis(); }
+        function forrige() { nr--; vis(); }
+
+        vis();
+    </script>
 
 </body>
 

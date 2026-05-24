@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,18 @@
 
     <link rel="stylesheet" href="spilloppsett.css">
 
-     <link
+    <link
         href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
 
 
 </head>
+
 <body>
 
     <nav>
@@ -31,6 +33,56 @@
         </div>
     </nav>
 
+
+
+    <section>
+        <div class="innpakning">
+            <h2>Hypotetisk spilleroppsett til Vm</h2>
+            <div class="bane">
+                <div class="midtlinje"></div>
+                <div class="midtsirkel"></div>
+                <div class="rad">
+                    <div class="spiller" onclick="vis(this, 'Antonio Nusa · RB Leipzig')">Nusa</div>
+                    <div class="spiller" onclick="vis(this, 'Erling Haaland · Man City')">Haaland</div>
+                    <div class="spiller" onclick="vis(this, 'A. Schjelderup · Benfica')">Schjelderup</div>
+                </div>
+                <div class="rad">
+                    <div class="spiller" onclick="vis(this, 'Sander Berge · Fulham')">Berge</div>
+                    <div class="spiller" onclick="vis(this, 'Martin Ødegaard · Arsenal')">Ødegaard</div>
+                    <div class="spiller" onclick="vis(this, 'Fredrik Aursnes · Benfica')">Aursnes</div>
+                </div>
+                <div class="rad">
+                    <div class="spiller" onclick="vis(this, 'Julian Ryerson · Dortmund')">Ryerson</div>
+                    <div class="spiller" onclick="vis(this, 'Kristoffer Ajer · Brentford')">Ajer</div>
+                    <div class="spiller" onclick="vis(this, 'Leo Østigård · Genoa')">Østigård</div>
+                    <div class="spiller" onclick="vis(this, 'Fredrik Bjørkan · Bodø/Glimt')">Bjørkan</div>
+                </div>
+                <div class="rad">
+                    <div class="spiller" onclick="vis(this, 'Ørjan Nyland · Sevilla')">Nyland</div>
+                </div>
+            </div>
+            <p id="spillerinfo">Trykk på en spiller</p>
+            <p class="formasjon">4 – 3 – 3</p>
+        </div>
+    </section>
+
+    <footer>
     
+        <span>Av Anne Helene Bjune Bjerve</span>
+        <span> Heia Norge</span>
+    
+
+    </footer>
+
+    <script>
+        function vis(spiller, tekst) {
+            document.querySelectorAll('.spiller').forEach(s => s.classList.remove('valgt'));
+            spiller.classList.add('valgt');
+            document.getElementById('spillerinfo').textContent = tekst;
+        }
+    </script>
+
+
 </body>
+
 </html>

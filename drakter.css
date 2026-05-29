@@ -59,6 +59,28 @@ nav {
   background-color: #7d1f2e;
 }
 
+.hamburger-meny {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.hamburger-meny span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+
+
+
 section {
   height: 100vh;
   text-align: center;
@@ -247,6 +269,9 @@ footer span {
 
   .kortraad {
     flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .kort {
@@ -272,7 +297,57 @@ footer span {
     
   }
 
-  a {
+  
+
+  .nav-links {
     display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    right: 0; /* ← høyre side */
+    width: 200px; /* ← boks i stedet for full bredde */
+    background-color: #ffffff; /* ← hvit bakgrunn */
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
   }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    color: #7d1f2e; /* ← burgunder farge på lenker */
+    margin-left: 0;
+  }
+
+  .hamburger-meny {
+    display: flex;  /* ← denne mangler! */
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 200px;
+    background-color: #ffffff;
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    color: #7d1f2e;
+    margin-left: 0;
+  }
+
 }
+

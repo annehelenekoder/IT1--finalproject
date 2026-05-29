@@ -25,7 +25,14 @@
     <header>
         <nav>
             <div class="logo">NORGE VM</div>
-            <div class="nav-links">
+
+            <button class="hamburger-meny" onclick="åpneMeny()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+            <div class="nav-links" id="navLinks">
                 <a href="spilloppsett.html">Spill oppsett</a>
                 <a href="quiz.html">Quiz</a>
                 <a href="index.html">Hjem</a>
@@ -114,6 +121,13 @@
 
 
     </footer>
+
+    <script>
+        function åpneMeny() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
 
 
 

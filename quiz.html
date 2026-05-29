@@ -23,7 +23,12 @@
 
     <nav>
         <div class="logo">NORGE VM</div>
-        <div class="nav-links">
+        <button class="hamburger-meny" onclick="åpneMeny()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
             <a href="spilloppsett.html">Spill oppsett</a>
             <a href="index.html">Hjem</a>
             <a href="drakter.html">Drakter</a>
@@ -38,14 +43,56 @@
 
 
         <div class="container">
-            <p id="tekst"></p>
-            <button class="svar" id="svar0" onclick="svar(0)"></button>
-            <button class="svar" id="svar1" onclick="svar(1)"></button>
-            <button class="svar" id="svar2" onclick="svar(2)"></button>
-            <div class="piler">
-                <button onclick="forrige()">←</button>
-                <span id="teller"></span>
-                <button onclick="neste()">→</button>
+            <div>
+
+
+        <h3>Hvor arrangeres VM 2026?</h3>
+
+        <button onclick="sjekkSvar(this, false)">Brasil</button>
+
+        <button onclick="sjekkSvar(this, true)">
+            USA/Canada/Mexico
+        </button>
+
+        <button onclick="sjekkSvar(this, false)">Europa</button>
+    </div>
+
+
+
+    <div>
+        <h3>Hvor mange lag deltar?</h3>
+
+        <button onclick="sjekkSvar(this, false)">32</button>
+
+        <button onclick="sjekkSvar(this, true)">48</button>
+
+        <button onclick="sjekkSvar(this, false)">64</button>
+    </div>
+
+
+
+    <div>
+        <h3>Hvem er regjerende verdensmester?</h3>
+
+        <button onclick="sjekkSvar(this, false)">Frankrike</button>
+
+        <button onclick="sjekkSvar(this, false)">Brasil</button>
+
+        <button onclick="sjekkSvar(this, true)">Argentina</button>
+    </div>
+
+
+
+    <div>
+        <h3>Hvilken by er IKKE VM-vert?</h3>
+
+        <button onclick="sjekkSvar(this, false)">New York</button>
+
+        <button onclick="sjekkSvar(this, true)">Rio de Janeiro</button>
+
+        <button onclick="sjekkSvar(this, false)">Los Angeles</button>
+    </div>
+
             </div>
 
         </div>
@@ -62,35 +109,23 @@
 
 
     <script>
-        const sporsmal = [
-            { tekst: "Hvor arrangeres VM 2026?", svar: ["Brasil", "USA/Canada/Mexico", "Europa"], riktig: 1 },
-            { tekst: "Hvor mange lag deltar?", svar: ["32", "48", "64"], riktig: 1 },
-            { tekst: "Hvem er regjerende verdensmester?", svar: ["Frankrike", "Brasil", "Argentina"], riktig: 2 },
-            { tekst: "Hvilken by er IKKE VM-vert?", svar: ["New York", "Rio de Janeiro", "Los Angeles"], riktig: 1 },
-            { tekst: "Hvem vant VM i 2018?", svar: ["Kroatia", "Frankrike", "Belgia"], riktig: 1 },
-            { tekst: "Hvem vant VM i 2022?", svar: ["Frankrike", "Brasil", "Argentina"], riktig: 2 }
-        ];
+       function sjekkSvar(knapp, riktig){
 
-        let nr = 0;
+           
+            if(riktig == true){
 
-        function vis() {
-            document.getElementById('tekst').textContent = sporsmal[nr].tekst;
-            document.getElementById('svar0').textContent = sporsmal[nr].svar[0];
-            document.getElementById('svar1').textContent = sporsmal[nr].svar[1];
-            document.getElementById('svar2').textContent = sporsmal[nr].svar[2];
-            document.getElementById('svar0').style.background = '';
-            document.getElementById('svar1').style.background = '';
-            document.getElementById('svar2').style.background = '';
+                
+                knapp.style.backgroundColor = "green";
+            }
+
+            
+            else{
+
+                
+                knapp.style.backgroundColor = "red";
+            }
         }
-
-        function svar(i) {
-            document.getElementById('svar' + i).style.background = i === sporsmal[nr].riktig ? 'green' : 'red';
-        }
-
-        function neste() { nr++; vis(); }
-        function forrige() { nr--; vis(); }
-
-        vis();
+    
     </script>
 
 </body>

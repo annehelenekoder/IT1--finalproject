@@ -24,7 +24,13 @@
 
     <nav>
         <div class="logo">NORGE VM</div>
-        <div class="nav-links">
+
+        <button class="hamburger-meny" onclick="åpneMeny()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
             <a href="index.html">Hjem</a>
             <a href="quiz.html">Quiz</a>
             <a href="drakter.html">Drakter</a>
@@ -67,19 +73,31 @@
     </section>
 
     <footer>
-    
+
         <span>Av Anne Helene Bjune Bjerve</span>
         <span> Heia Norge</span>
-    
+
 
     </footer>
 
     <script>
+        
         function vis(spiller, tekst) {
-            document.querySelectorAll('.spiller').forEach(s => s.classList.remove('valgt'));
+            document.querySelectorAll('.spiller').forEach(function (s) {
+                s.classList.remove('valgt');
+            });
+
             spiller.classList.add('valgt');
             document.getElementById('spillerinfo').textContent = tekst;
         }
+
+
+
+        function åpneMeny() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
     </script>
 
 
